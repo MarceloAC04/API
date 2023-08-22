@@ -3,6 +3,8 @@ using webapi.filme.manha.Interfaces;
 
 namespace webapi.filme.manha.Repositories
 {
+    private string StringConexao = "Data Source = NOTE23-S15; Initial Catalog = Filmes; Integrated Security = true";
+                                                                                      // User Id = sa; Pwd = Senha";
     public class FilmeRepository : IFilmeRepository
     {
         public void AtualizarIdCorpo(FilmeDomain filme)
