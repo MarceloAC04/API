@@ -55,6 +55,31 @@ namespace webapi.filme.manha.Controllers
                 //Retorna um status code BadRequest(400) e a mensagem erro
                 return BadRequest(erro.Message);
             }
+        }
+
+        /// <summary>
+        /// Endpoint que aciona o metodo de cadastro de generp
+        /// </summary>
+        /// <param name="novoGenero">Objeto recebido na requisição</param>
+        /// <returns>status code 201(created)</returns>
+        [HttpPost]
+        public IActionResult Post(GeneroDomain novoGenero)
+        {
+            try
+            {
+
+            //Fazendo a chamada para o metodo cadastrar passando o objeto novoGenero como parametro
+            _generoRepository.Cadastrar(novoGenero);
+
+            //Retorna o Status Code 201
+            return StatusCode(201);
+
+            }
+            catch (Exception erro) 
+            {
+                //Retorna o Staus Code 400(BadRequest) e a mensagem do erro
+                return BadRequest(erro.Message);
+            }
 
         }
     }
