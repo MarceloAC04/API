@@ -58,7 +58,7 @@ namespace webapi.filme.manha.Controllers
         }
 
         /// <summary>
-        /// Endpoint que aciona o metodo de cadastro de generp
+        /// Endpoint que aciona o metodo de cadastro de genero
         /// </summary>
         /// <param name="novoGenero">Objeto recebido na requisição</param>
         /// <returns>status code 201(created)</returns>
@@ -81,6 +81,35 @@ namespace webapi.filme.manha.Controllers
                 return BadRequest(erro.Message);
             }
 
+        }
+        /// <summary>
+        /// Endpoint que aciona o metodo de deletar de genero
+        /// </summary>
+        /// <param name="id">id do objeto recebido</param>
+        /// <returns>code 201(deleted)</returns>
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id) 
+        {
+            try
+            {
+                _generoRepository.Deletar(id);
+
+                return StatusCode(201);
+            }
+            catch (Exception erro) 
+            { 
+                return BadRequest(erro.Message);
+            }
+        }
+
+        /// <summary>
+        /// Endpoint que aciona o  metodo ListarTodos no repositorio
+        /// </summary>
+        /// <returns>retorna a resposta para o usuario(front-end)</returns>
+        [HttpGet]
+        public IActionResult Get(int id)
+        {
+        
         }
     }
 }

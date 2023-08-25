@@ -29,8 +29,9 @@ namespace webapi.filme.manha.Repositories
 
         public GeneroDomain BuscarPorId(int id)
         {
-            throw new NotImplementedException();
+            
         }
+
 
         /// <summary>
         /// Cadastrar um novo genero
@@ -42,11 +43,14 @@ namespace webapi.filme.manha.Repositories
             using (SqlConnection con = new SqlConnection(StringConexao))
             {
                 //Declara a query que sera executada
-                string queryInsert = "INSERT INTO Genero(Nome) VALUES ('"+ novoGenero.Nome +"')";
+                string queryInsert = "INSERT INTO Genero(Nome) VALUES (@Nome)";
 
                 //Declara o SqlComand passando a query que sera executada e a conexao com o banco
                 using (SqlCommand cmd = new SqlCommand(queryInsert, con))
                 {
+                    //Passa o valor do parametro @Nome
+                    cmd.Parameters.AddWithValue("@Nome", novoGenero.Nome);
+
                     //Abre a conexao com o banco de dados
                     con.Open();
 
@@ -56,10 +60,25 @@ namespace webapi.filme.manha.Repositories
 
             }
         }
-
+        /// <summary>
+        /// Delata um genero cadastrado
+        /// </summary>
+        /// <param name="id">id do genero a ser deletado</param>
         public void Deletar(int id)
         {
-            throw new NotImplementedException();
+            using (SqlConnection con = new SqlConnection(StringConexao))
+            {
+              string queryDelete =  $"DELETE FROM Genero WHERE idGenero = {id}";
+
+              using (SqlCommand cmd = new SqlCommand(queryDelete, con))
+              {
+
+                    con.Open();
+
+                    cmd.ExecuteNonQuery();
+              }
+            }
+
         }
 
         /// <summary>
