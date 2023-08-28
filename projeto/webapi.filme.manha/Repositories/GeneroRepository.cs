@@ -15,21 +15,101 @@ namespace webapi.filme.manha.Repositories
         ///     -SQLServer : User Id = sa Pwd = Senha
         /// </summary>
         private string StringConexao = "Data Source = NOTE23-S15; Initial Catalog = Filmes; User Id = sa; Pwd = Senai@134";
-                                                                                            // Integrated Security = true";
-                                                                                         
+                                                                                          // Integrated Security = true";
+        
+        /// <summary>
+        /// Atualiza um objeto genero passando seu id e o corpo de requisição
+        /// </summary>
+        /// <param name="genero">Objeto genero a ser atualizado</param>
         public void AtualizarIdCorpo(GeneroDomain genero)
         {
-            throw new NotImplementedException();
+            using (SqlConnection con = new SqlConnection(StringConexao)) 
+            {
+                string queryUpdateById = "UPDATE Genero Set Nome = @Nome WHERE IdGenero = @Id";
+
+                //Declara o SqlComand passando a query que sera executada e a conexao com o banco
+                using (SqlCommand cmd = new SqlCommand(queryUpdateById, con))
+                {
+                    //Passa o valor do parametro @Nome
+                    cmd.Parameters.AddWithValue("@Nome", genero.Nome);
+
+                    cmd.Parameters.AddWithValue("@Id", genero.IdGenero);
+
+                    //Abre a conexao com o banco de dados
+                    con.Open();
+
+                    //Executa a query (queryINSERT)
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
 
+        /// <summary>
+        /// Atualiza um objeto genero atraves da url passando seu id
+        /// </summary>
+        /// <param name="id">Id do objeto a ser atualizado</param>
+        /// <param name="genero">objeto genero a ser atualizado </param>
         public void AtualizarIdUlr(int id, GeneroDomain genero)
         {
-            throw new NotImplementedException();
+           using (SqlConnection con = new SqlConnection(StringConexao)) 
+           {
+                string queryUpdateByIdUlr = "UPDATE Genero Set Nome = @Nome WHERE IdGenero = @Id";
+
+                //Declara o SqlComand passando a query que sera executada e a conexao com o banco
+                using (SqlCommand cmd = new SqlCommand(queryUpdateByIdUlr, con))
+                {
+                    //Passa o valor do parametro @Nome
+                    cmd.Parameters.AddWithValue("@Nome", genero.Nome);
+
+                    cmd.Parameters.AddWithValue("@Id", id);
+
+                    //Abre a conexao com o banco de dados
+                    con.Open();
+
+                    //Executa a query (queryINSERT)
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
 
+        /// <summary>
+        /// Busca um genero pelo seu id
+        /// </summary>
+        /// <param name="id">id</param>
+        /// <returns>o obejto genero encontrado</returns>
         public GeneroDomain BuscarPorId(int id)
         {
-            
+            using (SqlConnection con = new SqlConnection(StringConexao))
+            {
+                // Declara a instrução a ser executada, filtrando pelo ID
+                string querySelectById = "SELECT IdGenero, Nome FROM Genero WHERE IdGenero = @Id";
+
+                con.Open();
+
+                SqlDataReader rdr;
+
+                using (SqlCommand cmd = new SqlCommand(querySelectById, con))
+                {
+                    // Define o parâmetro @Id com o valor fornecido
+                    cmd.Parameters.AddWithValue("@Id", id);
+
+                    rdr = cmd.ExecuteReader();
+
+                    if (rdr.Read())
+                    {
+                        GeneroDomain generoEncontrado = new GeneroDomain()
+                        {
+                            IdGenero = Convert.ToInt32(rdr[0]),
+                            Nome = rdr["Nome"].ToString()
+                        };
+
+                        //Retorna um o objeto genero encontrado
+                        return generoEncontrado;
+                    }
+                   return null;
+      
+                }
+            }
         }
 
 
@@ -99,7 +179,7 @@ namespace webapi.filme.manha.Repositories
                  //Abre a conexao com o banco de dados
                  con.Open();
 
-                //Declara o SqlDataReader para percorrer a tabela do banco
+                ////Declara o SqlDataReader para percorrer a tabela do banco
                 SqlDataReader rdr;
 
                 //Declara o SqlComand passando a query que sera executada e a conexao com o banco

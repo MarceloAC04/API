@@ -25,7 +25,7 @@ namespace webapi.filme.manha.Interfaces
         /// <summary>
         /// Atualiza um objeto existente passando seu id e o corpo da requisição
         /// </summary>
-        /// <param name="genero">Obejto atualizado</param>
+        /// <param name="genero">Objeto atualizado</param>
         void AtualizarIdCorpo(GeneroDomain genero);
 
         /// <summary>
@@ -44,7 +44,7 @@ namespace webapi.filme.manha.Interfaces
         /// <summary>
         /// Busca um objeto atraves de seu id
         /// </summary>
-        /// <param name="id">Id do obejto a ser buscado</param>
+        /// <param name="id">Id do objeto a ser buscado</param>
         /// <returns></returns>
         GeneroDomain BuscarPorId(int id);
 

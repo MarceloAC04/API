@@ -103,13 +103,74 @@ namespace webapi.filme.manha.Controllers
         }
 
         /// <summary>
-        /// Endpoint que aciona o  metodo ListarTodos no repositorio
+        /// Endpoint que aciona o  metodo BuscarPorId no repositorio
         /// </summary>
         /// <returns>retorna a resposta para o usuario(front-end)</returns>
-        [HttpGet]
+        [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-        
+            try
+            {
+                //Cria um objeto que recebe os dados da requisicao
+               GeneroDomain generoEncontrado = _generoRepository.BuscarPorId(id);
+
+                if (generoEncontrado == null)
+                {
+                    return NotFound("Nenhum genero foi encontrado");
+                }
+
+                //Retorna o objeto no formato JSON com o status code Ok(200)
+                return Ok(generoEncontrado);
+
+            }
+            catch (Exception erro)
+            {
+                //Retorna um status code BadRequest(400) e a mensagem erro
+                return BadRequest(erro.Message);
+            }
+        }
+
+        /// <summary>
+        /// Endpoint que aciona o metodo AtualizarIdCorpo no repositorio
+        /// </summary>
+        /// <param name="genero">Id do objeto e o corpo da requisição</param>
+        /// <returns>retorna StatusCode201(updated)</returns>
+        [HttpPut]
+
+        public IActionResult Put(GeneroDomain genero)
+        {
+            try
+            {
+                _generoRepository.AtualizarIdCorpo(genero);
+
+                return StatusCode(201);
+            }
+            catch (Exception erro)
+            {
+                return BadRequest(erro.Message);
+            }
+        }
+
+        /// <summary>
+        /// Endpoint que aciona o metodo AtualizarIdUrl do repositorio
+        /// </summary>
+        /// <param name="id">Id do objeto a ser atualizado</param>
+        /// <param name="genero">Genero do obejto a ser atualizado</param>
+        /// <returns>retorna StatusCode201(updated)</returns>
+        [HttpPut("{id}")]
+
+        public IActionResult Put(int id, GeneroDomain genero)
+        {
+            try
+            {
+                _generoRepository.AtualizarIdUlr(id, genero);
+
+                return StatusCode(201);
+            }
+            catch (Exception erro)
+            {
+                return BadRequest(erro.Message);
+            }
         }
     }
 }
