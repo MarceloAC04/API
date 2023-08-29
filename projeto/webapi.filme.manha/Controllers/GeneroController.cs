@@ -141,9 +141,23 @@ namespace webapi.filme.manha.Controllers
         {
             try
             {
-                _generoRepository.AtualizarIdCorpo(genero);
+                GeneroDomain generoEncontrado = _generoRepository.BuscarPorId(genero.IdGenero);
 
-                return StatusCode(201);
+                if (generoEncontrado != null)
+                {
+                    try
+                    {
+                        _generoRepository.AtualizarIdCorpo(genero);
+
+                        return StatusCode(201);
+
+                    }
+                    catch (Exception erro)
+                    {
+                        return BadRequest(erro.Message);
+                    }
+                }
+                return BadRequest("Genero não encontrado");
             }
             catch (Exception erro)
             {
@@ -163,9 +177,23 @@ namespace webapi.filme.manha.Controllers
         {
             try
             {
-                _generoRepository.AtualizarIdUlr(id, genero);
+                GeneroDomain generoEncontrado = _generoRepository.BuscarPorId(id);
 
-                return StatusCode(201);
+                if (generoEncontrado != null)
+                {
+                    try
+                    {
+                        _generoRepository.AtualizarIdUlr(id, genero);
+
+                        return StatusCode(201);
+
+                    }
+                    catch (Exception erro)
+                    {
+                        return BadRequest(erro.Message);
+                    }
+                }
+                return BadRequest("Genero não encontrado");
             }
             catch (Exception erro)
             {

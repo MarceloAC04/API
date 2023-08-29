@@ -4,6 +4,39 @@
         <name>webapi.filme.manha</name>
     </assembly>
     <members>
+        <member name="M:webapi.filme.manha.Controllers.FilmeController.Get">
+            <summary>
+            Endpoint que aciona o metodo Listar Todos no repositorio
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.filme.manha.Controllers.FilmeController.Post(webapi.filme.manha.Domains.FilmeDomain)">
+            <summary>
+            Endpoint que aciona o metodo cadastrar no repositorio
+            </summary>
+            <param name="novoFilme">Objeto filme a ser cadastrado</param>
+            <returns>Status code 201</returns>
+        </member>
+        <member name="M:webapi.filme.manha.Controllers.FilmeController.Delete(System.Int32)">
+            <summary>
+            Endpoint que aciona o metodo delatar do repositorio
+            </summary>
+            <param name="id">Id do objeto filme a ser deletado</param>
+            <returns>Status code 201(deleted)</returns>
+        </member>
+        <member name="M:webapi.filme.manha.Controllers.FilmeController.Get(System.Int32)">
+            <summary>
+            Endpoint que aciona o  metodo BuscarPorId no repositorio
+            </summary>
+            <returns>retorna a resposta para o usuario(front-end)</returns>
+        </member>
+        <member name="M:webapi.filme.manha.Controllers.FilmeController.Patch(webapi.filme.manha.Domains.FilmeDomain)">
+            <summary>
+            Endpoint que aciona o metodo AtualizarIdCorpo no repositorio
+            </summary>
+            <param name="filme">Filme a ser atualizado</param>
+            <returns>retorna StatusCode201(updated)</returns>
+        </member>
         <member name="P:webapi.filme.manha.Controllers.GeneroController._generoRepository">
             <summary>
             Objeto _generoRepository que ira receber todos os metodos definidos na interface IGeneroRepository
@@ -156,6 +189,31 @@
                 -Windows : Intergrated Security = true
                 -SQLServer : User Id = sa Pwd = Senha
             </summary>
+        </member>
+        <member name="M:webapi.filme.manha.Repositories.FilmeRepository.BuscarPorId(System.Int32)">
+            <summary>
+            Busca um objeto filme pelo seu id
+            </summary>
+            <param name="id">Id do objeto a ser encontrado</param>
+            <returns>Objeto filme encontrado</returns>
+        </member>
+        <member name="M:webapi.filme.manha.Repositories.FilmeRepository.Cadastrar(webapi.filme.manha.Domains.FilmeDomain)">
+            <summary>
+            Cadastra um novo filme
+            </summary>
+            <param name="novoFilme">Novo objeto filme a ser cadastrado</param>
+        </member>
+        <member name="M:webapi.filme.manha.Repositories.FilmeRepository.Deletar(System.Int32)">
+            <summary>
+            Deleta um filme cadastrado
+            </summary>
+            <param name="id">id do filme a ser deletado</param>
+        </member>
+        <member name="M:webapi.filme.manha.Repositories.FilmeRepository.ListarTodos">
+            <summary>
+            Lista todos os filmes cadastrados
+            </summary>
+            <returns>Lista dos filmes cadastrdos</returns>
         </member>
         <member name="F:webapi.filme.manha.Repositories.GeneroRepository.StringConexao">
             <summary>
