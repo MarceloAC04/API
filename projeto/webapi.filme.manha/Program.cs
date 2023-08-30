@@ -42,6 +42,7 @@ app.UseSwaggerUI(options =>
     options.RoutePrefix = string.Empty;
 });
 
+
 //Adiciona o mapeamento dos controllers
 app.MapControllers();
 

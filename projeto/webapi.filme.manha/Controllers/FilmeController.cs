@@ -158,8 +158,13 @@ namespace webapi.filme.manha.Controllers
             }
         }
 
+        /// <summary>
+        /// Endpoint que aciona o metodo AtualizarIdUrl do repositorio
+        /// </summary>
+        /// <param name="id">Id do objeto a ser atualizado pela URL</param>
+        /// <param name="filme">Filme a ser ataulizado pela URL</param>
+        /// <returns>retorna StatusCode201(updated)</returns>
         [HttpPatch("{id}")]
-
         public IActionResult Patch(int id, FilmeDomain filme)
         {
             try

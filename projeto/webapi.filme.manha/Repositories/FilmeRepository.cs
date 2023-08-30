@@ -81,7 +81,7 @@ namespace webapi.filme.manha.Repositories
             using (SqlConnection con = new SqlConnection(StringConexao))
             {
                 // Declara a instrução a ser executada, filtrando pelo ID
-                string querySelectById = "SELECT IdFilme, Titulo, IdGenero FROM Filme WHERE IdFilme = @Id";
+                string querySelectById = "SELECT IdFilme, Titulo, Filme.IdGenero, Genero.Nome FROM Filme INNER JOIN Genero ON Genero.IdGenero = Filme.IdGenero WHERE IdFilme = @Id";
 
                 con.Open();
 
@@ -98,13 +98,20 @@ namespace webapi.filme.manha.Repositories
                     {
                         FilmeDomain filmeEncontrado = new FilmeDomain()
                         {
-                            IdFilme = Convert.ToInt32(rdr[0]),
+                            IdFilme = Convert.ToInt32(rdr["IdFIlme"]),
 
-                            IdGenero = Convert.ToInt32(rdr[0]),
+                            IdGenero = Convert.ToInt32(rdr["IdGenero"]),
 
-                            Titulo = rdr["Titulo"].ToString()
+                            Titulo = rdr["Titulo"].ToString(),
+
+                            Genero = new GeneroDomain()
+                               {
+                                 IdGenero = Convert.ToInt32(rdr["IdGenero"]),
+                                 Nome = rdr["Nome"].ToString()
+
+                               }
+
                         };
-
                         //Retorna um o objeto genero encontrado
                         return filmeEncontrado;
                     }
@@ -180,7 +187,7 @@ namespace webapi.filme.manha.Repositories
             using (SqlConnection con = new SqlConnection(StringConexao))
             {
                 //Declara a instrução a ser executada
-                string querySelectAll = "SELECT Filme.IdFilme, Filme.Titulo, Genero.Nome as Nome, Filme.IdGenero FROM Filme LEFTx JOIN Genero ON Genero.IdGenero = Filme.IdGenero";
+                string querySelectAll = "SELECT Filme.IdFilme, Filme.Titulo, Genero.Nome, Filme.IdGenero FROM Filme INNER JOIN Genero ON Genero.IdGenero = Filme.IdGenero";
 
                 //Abre a conexao com o banco de dados
                 con.Open();
@@ -199,17 +206,17 @@ namespace webapi.filme.manha.Repositories
                         FilmeDomain filme = new FilmeDomain()
                         {
                             //Atribui a propriedade IdGenero o valor recebido no rdr
-                            IdFilme = Convert.ToInt32(rdr[0]),
+                            IdFilme = Convert.ToInt32(rdr["IdFilme"]),
 
                             //Atribui a propriedade Nome o valor recebido no rdr
                             Titulo = rdr["Titulo"].ToString(),
 
-                            IdGenero = Convert.ToInt32(rdr[0]),
+                            IdGenero = Convert.ToInt32(rdr["IdGenero"]),
 
 
                             Genero = new GeneroDomain()
                             {
-
+                              IdGenero = Convert.ToInt32(rdr["IdGenero"]),
                               Nome = rdr["Nome"].ToString()
 
                             }
