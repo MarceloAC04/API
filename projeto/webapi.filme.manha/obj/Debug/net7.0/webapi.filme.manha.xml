@@ -8,7 +8,7 @@
             <summary>
             Endpoint que aciona o metodo Listar Todos no repositorio
             </summary>
-            <returns></returns>
+            <returns>Lista com os filmes cadastrados</returns>
         </member>
         <member name="M:webapi.filme.manha.Controllers.FilmeController.Post(webapi.filme.manha.Domains.FilmeDomain)">
             <summary>
@@ -96,7 +96,7 @@
             <param name="genero">Genero do obejto a ser atualizado</param>
             <returns>retorna StatusCode201(updated)</returns>
         </member>
-        <member name="M:webapi.filme.manha.Controllers.UsuarioController.Get(System.String,System.String)">
+        <member name="M:webapi.filme.manha.Controllers.UsuarioController.Post(System.String,System.String)">
             <summary>
             Endpoint que aciona o metodo login no repositorio
             </summary>

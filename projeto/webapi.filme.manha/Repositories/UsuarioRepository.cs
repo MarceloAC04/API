@@ -47,7 +47,7 @@ namespace webapi.filme.manha.Repositories
 
                             Nome = rdr["Nome"].ToString(),
 
-                            Permissao = Convert.ToBoolean(rdr[0])
+                            Permissao = Convert.ToBoolean(rdr["Permissao"])
                         };
                         return usuarioEncontrado;
                     }

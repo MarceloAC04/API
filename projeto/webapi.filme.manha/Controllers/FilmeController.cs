@@ -31,7 +31,7 @@ namespace webapi.filme.manha.Controllers
         /// <summary>
         /// Endpoint que aciona o metodo Listar Todos no repositorio
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Lista com os filmes cadastrados</returns>
         [HttpGet]
         public IActionResult Get()
         {

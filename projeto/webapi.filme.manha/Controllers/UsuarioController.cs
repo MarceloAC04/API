@@ -31,8 +31,8 @@ namespace webapi.filme.manha.Controllers
         /// <param name="email">email do usuario</param>
         /// <param name="senha">senha do usuario</param>
         /// <returns>retorna a resposta para o usuario(front-end)</returns>
-        [HttpGet]
-        public IActionResult Get(string email, string senha)
+        [HttpPost]
+        public IActionResult Post(string email, string senha)
         {
             try
             {
