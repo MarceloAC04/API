@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
-using System.Runtime.InteropServices;
 using System.Security.Claims;
 using webapi.filme.manha.Domains;
 using webapi.filme.manha.Interfaces;
@@ -23,7 +22,7 @@ namespace webapi.filme.manha.Controllers
     public class UsuarioController : ControllerBase
     {
         private IUsuarioRepository _usuarioRepository { get; set; }
-      
+
 
         public UsuarioController()
         {
@@ -37,14 +36,14 @@ namespace webapi.filme.manha.Controllers
         /// <param name="senha">senha do usuario</param>
         /// <returns>retorna a resposta para o usuario(front-end)</returns>
         [HttpPost]
-        public IActionResult Post(string email, string senha)
+        public IActionResult Post(UsuarioDomain usuario)
         {
             try
             {
                 //Cria um objeto que recebe os dados da requisicao
-                UsuarioDomain usuarioEncontrado = _usuarioRepository.Login(email, senha);
+                UsuarioDomain usuarioBuscado = _usuarioRepository.Login(usuario.Email, usuario.Senha);
 
-                if (usuarioEncontrado == null)
+                if (usuarioBuscado == null)
                 {
                     return NotFound("Usuário ou Senha Inválidos");
                 }
@@ -54,9 +53,9 @@ namespace webapi.filme.manha.Controllers
                 //1) - Defini as informações(claims) que serão fornecidas no token(PAYLOAD)
                 var claims = new[]
                 {
-                    new Claim(JwtRegistredClaimNames.Jti, usuarioEncontrado.IdUsuario.ToString()), 
-                    new Claim(JwtRegistredClaimNames.Email, usuarioEncontrado.Email),
-                    new Claim(ClaimTypes.Role, usuarioEncontrado.Permissao.ToString()),
+                    new Claim(JwtRegisteredClaimNames.Jti, usuarioBuscado.IdUsuario.ToString()), 
+                    new Claim(JwtRegisteredClaimNames.Email, usuarioBuscado.Email),
+                    new Claim(ClaimTypes.Role, usuarioBuscado.Permissao.ToString()),
 
 
                     //Existe a possibilidade de criar uma claim personalizada
