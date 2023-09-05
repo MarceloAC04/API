@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using webapi.filme.manha.Domains;
 using webapi.filme.manha.Interfaces;
@@ -39,6 +40,7 @@ namespace webapi.filme.manha.Controllers
         /// </summary>
         /// <returns>retorna a resposta para o usuario(front-end)</returns>
         [HttpGet]
+        [Authorize(Roles = "True, False")]
         public IActionResult Get() 
         {
             try
@@ -63,6 +65,7 @@ namespace webapi.filme.manha.Controllers
         /// <param name="novoGenero">Objeto recebido na requisição</param>
         /// <returns>status code 201(created)</returns>
         [HttpPost]
+        [Authorize(Roles = "True")]
         public IActionResult Post(GeneroDomain novoGenero)
         {
             try

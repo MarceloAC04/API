@@ -96,7 +96,7 @@
             <param name="genero">Genero do obejto a ser atualizado</param>
             <returns>retorna StatusCode201(updated)</returns>
         </member>
-        <member name="M:webapi.filme.manha.Controllers.UsuarioController.Post(System.String,System.String)">
+        <member name="M:webapi.filme.manha.Controllers.UsuarioController.Post(webapi.filme.manha.Domains.UsuarioDomain)">
             <summary>
             Endpoint que aciona o metodo login no repositorio
             </summary>

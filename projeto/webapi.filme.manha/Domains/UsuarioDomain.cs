@@ -13,7 +13,6 @@ namespace webapi.filme.manha.Domains
         [Required(ErrorMessage = "A senha do usuário é obrigatório!")]
         public string Senha { get; set; }
 
-        [Required(ErrorMessage = "O nome do usuário é obrigatório!")]
         public string Nome { get; set; }
         public bool Permissao { get; set; }
     }
