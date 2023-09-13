@@ -4067,11 +4067,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\48260449846\\Desktop\\webApi.Inlock.dbFirst.Manha\\webApi.Inlock.dbFirst.Manha.csproj",
+      "projectUniqueName": "C:\\Users\\48260449846\\Desktop\\API\\webApi.Inlock.dbFirst.Manha\\webApi.Inlock.dbFirst.Manha.csproj",
       "projectName": "webApi.Inlock.dbFirst.Manha",
-      "projectPath": "C:\\Users\\48260449846\\Desktop\\webApi.Inlock.dbFirst.Manha\\webApi.Inlock.dbFirst.Manha.csproj",
+      "projectPath": "C:\\Users\\48260449846\\Desktop\\API\\webApi.Inlock.dbFirst.Manha\\webApi.Inlock.dbFirst.Manha.csproj",
       "packagesPath": "C:\\Users\\48260449846\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\48260449846\\Desktop\\webApi.Inlock.dbFirst.Manha\\obj\\",
+      "outputPath": "C:\\Users\\48260449846\\Desktop\\API\\webApi.Inlock.dbFirst.Manha\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\48260449846\\AppData\\Roaming\\NuGet\\NuGet.Config",

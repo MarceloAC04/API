@@ -5,7 +5,7 @@ namespace webApi.Inlock.dbFirst.Manha.Domains;
 
 public partial class Estudio
 {
-    public Guid IdEstudio { get; set; }
+    public Guid IdEstudio { get; set; } = Guid.NewGuid();
 
     public string Nome { get; set; } = null!;
 

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "jBk8tuHn0u5Xn+DL28WYecQd9SU0HyEtRdchjHYDsRoSztJ45IsLoC+0PkssQjCqwq6Vkm54HtsZuQPgzzGEvg==",
+  "dgSpecHash": "ghQjtZIYj2UEKkhK0OZCo16hx6oGYsbnK/yRhg+2slJ//DXOyhWkhnr2YreqEJvp9gKS6o8E+8429C5LNYC6Bg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\48260449846\\Desktop\\webApi.Inlock.dbFirst.Manha\\webApi.Inlock.dbFirst.Manha.csproj",
+  "projectFilePath": "C:\\Users\\48260449846\\Desktop\\API\\webApi.Inlock.dbFirst.Manha\\webApi.Inlock.dbFirst.Manha.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\48260449846\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\48260449846\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
