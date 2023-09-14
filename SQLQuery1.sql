@@ -1,0 +1,55 @@
+CREATE DATABASE Inlock_games_dbFirst_MANHA
+USE Inlock_games_dbFirst_MANHA
+
+CREATE TABLE Estudio
+(
+	IdEstudio UNIQUEIDENTIFIER PRIMARY KEY,
+	Nome VARCHAR(100) NOT NULL,
+
+);
+
+CREATE TABLE Jogo
+(
+	IdJogo UNIQUEIDENTIFIER PRIMARY KEY,
+	IdEstudio UNIQUEIDENTIFIER FOREIGN KEY REFERENCES Estudio (IdEstudio),
+	Nome VARCHAR(100) NOT NULL,
+	Descricao VARCHAR(100) NOT NULL,
+	DataLancamento DATE NOT NULL,
+	Valor SMALLMONEY NOT NULL
+);
+
+CREATE TABLE TiposUsuario
+(
+	IdTipoUsuario UNIQUEIDENTIFIER PRIMARY KEY,
+	Titulo VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE Usuario
+(
+	IdUsuario UNIQUEIDENTIFIER PRIMARY KEY,
+	IdTipoUsuario UNIQUEIDENTIFIER FOREIGN KEY REFERENCES TiposUsuario(IdTipoUsuario),
+	Email VARCHAR(100) NOT NULL,
+	Senha VARCHAR(100) NOT NULL,
+);
+
+INSERT INTO Estudio
+VALUES (NEWID(),'Nintendo'),(NEWID(),'Sega'),(NEWID(),'Capcom')
+
+INSERT INTO Jogo
+VALUES (NEWID(), '2ACDA0E0-A28B-40FF-B388-474CF990FCDE','Mario Kart','Jogo do Mario mas de corrida', '2023-01-01',500),
+	   (NEWID(), '2ACDA0E0-A28B-40FF-B388-474CF990FCDE','The Legend of Zelda','O nome do protagonista é Link não Zelda', '2023-01-01',300)
+
+SELECT * FROM Jogo
+
+INSERT INTO TiposUsuario
+VALUES (NEWID(), 'administrador'), (NEWID(), 'comum')
+
+SELECT * FROM TiposUsuario
+
+INSERT INTO Usuario
+VALUES (NEWID(), '798CE9B3-C8C6-4F5E-B0E9-E3F76F97636A', 'adm@adm.com', 'adm'),
+	   (NEWID(), '48C5A951-5A7E-4352-9900-4B12E9FBAF34', 'comum@comum.com', 'comum')
+
+SELECT * FROM Usuario
+
+SELECT * FROM Estudio

@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "cioHAH6VhkK/UUQpoDGMTX1Y8ZWZqp7FNsc8ayk2rOWht5TlR6xO5m1cywvaqj3YeeHnLCE7+U3AyPg/fghsZQ==",
+  "dgSpecHash": "/4enNf32aJyM8Bps/ejkonaRby41CPZxQTlDLvMtHtZbNpe8F4rbGrJGGQB2Ji8JBWNmzJdx/6AhZhwsyvm16w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\48260449846\\Desktop\\webapi.inlock.codefirst.Manha\\webapi.inlock.codefirst.Manha.csproj",
+  "projectFilePath": "C:\\Users\\48260449846\\Desktop\\API\\webapi.inlock.codefirst.Manha\\webapi.inlock.codefirst.Manha.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\48260449846\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\48260449846\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
+    "C:\\Users\\48260449846\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\48260449846\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\48260449846\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.0\\microsoft.aspnetcore.openapi.7.0.0.nupkg.sha512",
     "C:\\Users\\48260449846\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",

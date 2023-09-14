@@ -4,16 +4,16 @@ namespace webApi.Inlock.dbFirst.Manha.Interface
 {
     public interface IEstudioRepository
     {
-        List<Estudio> Listar();
+            List<Estudio> Listar();
 
-        Estudio BuscarPorId(Guid id);
+            Estudio BuscarPorId(Guid id);
 
-        void Cadastrar(Estudio estudio);
+            void Cadastrar(Estudio estudio);
 
-        void Atualizar(Guid id, Estudio estudio);
+            void Atualizar(Guid id, Estudio estudio);
 
-        void Deletar(Guid id);
+            void Deletar(Guid id);
 
-        List<Estudio> ListarComJogos();
+            List<Estudio> ListarComJogos();
     }
 }
