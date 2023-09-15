@@ -12,8 +12,8 @@ using webapi.inlock.codefirst.Manha.Contexts;
 namespace webapi.inlock.codefirst.Manha.Migrations
 {
     [DbContext(typeof(InlockContext))]
-    [Migration("20230914113840_BD")]
-    partial class BD
+    [Migration("20230915115015_BD_V2")]
+    partial class BD_V2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -100,8 +100,8 @@ namespace webapi.inlock.codefirst.Manha.Migrations
 
                     b.Property<string>("Senha")
                         .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("VARCHAR(100)");
+                        .HasMaxLength(200)
+                        .HasColumnType("VARCHAR(200)");
 
                     b.HasKey("IdUsuario");
 

@@ -75,3 +75,4 @@ C:\Users\48260449846\Desktop\API\webapi.inlock.codefirst.Manha\obj\Debug\net7.0\
 C:\Users\48260449846\Desktop\API\webapi.inlock.codefirst.Manha\obj\Debug\net7.0\webapi.inlock.codefirst.Manha.genruntimeconfig.cache
 C:\Users\48260449846\Desktop\API\webapi.inlock.codefirst.Manha\obj\Debug\net7.0\ref\webapi.inlock.codefirst.Manha.dll
 C:\Users\48260449846\Desktop\API\webapi.inlock.codefirst.Manha\bin\Debug\net7.0\BCrypt.Net-Next.dll
+C:\Users\48260449846\Desktop\API\webapi.inlock.codefirst.Manha\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
