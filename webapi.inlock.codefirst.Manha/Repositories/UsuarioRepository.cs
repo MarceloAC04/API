@@ -28,7 +28,7 @@ namespace webapi.inlock.codefirst.Manha.Repositories
         {
             try
             {
-               UsuarioDomain usuarioBuscado = ctx.Usuario.FirstOrDefault(u => u.Email = email);
+               UsuarioDomain usuarioBuscado = ctx.Usuario.FirstOrDefault(u => u.Email == email);
 
                 if (usuarioBuscado != null)
                 {

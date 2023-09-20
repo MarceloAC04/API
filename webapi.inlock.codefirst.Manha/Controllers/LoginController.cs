@@ -15,7 +15,7 @@ namespace webapi.inlock.codefirst.Manha.Controllers
     [Produces("application/json")]
     public class LoginController : ControllerBase
     {
-        private readonly IUsuarioRepository _usuarioRepository { get; set; }
+        private IUsuarioRepository _usuarioRepository { get; set; }
 
         public LoginController()
         {
